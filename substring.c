@@ -27,7 +27,7 @@ int main(void){
   for(i=0;i<n;i++){
     count=0;
     for(j=i;j<i+bleng;j++){
-      if(a[j]!=b[j-i]) count+=1;//あってない回数だけcountに1たす
+      if(a[j]==b[j-i]) count+=1;//あっている回数だけcountに1たす
       //printf("a=%c b=%c\n",a[j],b[k]);
     }
    t[i]=count;//配列tにaとbの文字がどれだけ一致しているかの数字を入れていく。
@@ -35,13 +35,13 @@ int main(void){
       
   }
   
-  int min=t[0];
+  int max=t[0];
   for(i=1;i<n;i++){
-    if(t[i]<min) min=t[i];
+    if(t[i]>max) max=t[i];
   }
   
   
-  printf("%d\n",min);//aを一文字ずつずらして一番修正数が少ないものを出力
+  printf("%d\n",aleng-max);//aを一文字ずつずらして一番修正数が少ないものを出力
   
   return 0;
 }
